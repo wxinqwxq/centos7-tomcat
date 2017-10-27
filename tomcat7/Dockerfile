@@ -21,7 +21,8 @@ RUN chmod +x ${CATALINA_HOME}/bin/*.sh
 
 RUN groupadd -r tomcat -g 433 && \
     useradd -u 431 -r -g tomcat -d ${CATALINA_HOME} -s /sbin/nologin -c "Docker image user" tomcat && \
-    chown -R tomcat:tomcat ${CATALINA_HOME}
+    chown -R tomcat:tomcat ${CATALINA_HOME} && \
+    chown -R tomcat:tomcat ${CATALINA_HOME}/webapps
 
 # add volume for webapps folder
 VOLUME ${CATALINA_HOME}/webapps
